@@ -11,14 +11,15 @@ Sami Bajwa samibajwa@csu.fullerton.edu
    `python -m venv venv`
 
 2. enter virtual environment  
-   windows: `venv\Scripts\activate.bat`  
+   windows: `venv\Scripts\activate`  
    linux: `venv/bin/activate`
 
 3. install requirements  
    `pip install -r requirements.txt`
 
 4. set up mongoDB  
-
+   create new database `book`  
+   in the `book` create new collection `book_list`  
+   
 5. run the main file  
-   windows: `python app.py`  
-   linux: `python3 app.py`
+   `uvicorn app:app --reload`
