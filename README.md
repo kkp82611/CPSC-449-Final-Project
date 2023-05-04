@@ -17,9 +17,8 @@ Sami Bajwa samibajwa@csu.fullerton.edu
 3. install requirements  
    `pip install -r requirements.txt`
 
-4. set up mongoDB  
-   create new database `book`  
-   in the `book` create new collection `book_list`  
+4. set up mongoDB create database and collection
+   run`python mongo.py`
    
-5. run the main file  
+5. run the main file to start api  
    `uvicorn app:app --reload`

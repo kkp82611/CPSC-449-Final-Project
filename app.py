@@ -55,12 +55,14 @@ def get_book():
 @app.get('/books/{book_id}')
 def get_one_book(book_id: str):
     mybook = book_list.find_one({"_id": ObjectId(book_id)},{"_id": 0})
+
     return mybook
 
 #● POST /books: Adds a new book to the store
 @app.post('/books')
 def add_book(add_book: Book):
     book_list.insert_one(add_book.__dict__)
+
     return "book added" 
      
 #● PUT /books/{book_id}: Updates an existing book by ID
@@ -68,12 +70,14 @@ def add_book(add_book: Book):
 def update(book_id: str, update_book: UpdateBook):
     newvalues = {"$set" : update_book.__dict__}
     book_list.update_one({'_id': ObjectId(book_id)}, newvalues)
+
     return "book updated"
 
 #● DELETE /books/{book_id}: Deletes a book from the store by ID
 @app.delete("/books/{book_id}")
 def delete_book(book_id: str):
     book_list.delete_one({'_id': ObjectId(book_id)})
+    
     return "book deleted"
      
 #● GET /search?title={}&author={}&min_price={}&max_price={}: Searches for books by title, author, and price range
