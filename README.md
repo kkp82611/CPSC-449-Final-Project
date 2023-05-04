@@ -17,7 +17,7 @@ Sami Bajwa samibajwa@csu.fullerton.edu
 3. install requirements  
    `pip install -r requirements.txt`
 
-4. set up mongoDB create database and collection
+4. set up mongoDB create database and collection  
    run`python mongo.py`
    
 5. run the main file to start api  
