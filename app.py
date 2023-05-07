@@ -1,4 +1,3 @@
-#change this to the flask
 from typing import Optional
 from fastapi import Body, FastAPI, Path
 from pydantic import BaseModel
@@ -81,6 +80,10 @@ def delete_book(book_id: str):
     return "book deleted"
      
 #● GET /search?title={}&author={}&min_price={}&max_price={}: Searches for books by title, author, and price range
+# allow either one or more argument.
+#● Search for books by title
+#● Search for books by author
+#● Search for books by price range
 @app.get("/search")
 def search_book(title: str = {"$exists":True}, author: str =  {"$exists":True}, min_price: float = 0, max_prie: float = 999999999):
     print(author)
@@ -90,6 +93,47 @@ def search_book(title: str = {"$exists":True}, author: str =  {"$exists":True}, 
     for x in result_book:
         cbook.append(x)
     return cbook
+
+#● The total number of books in the store
+@app.get("/allbook")
+def all_book():
+    result = book_list.aggregate([{"$group":{"_id": None, "totalNumberOfBooks" : {"$sum": "$stock"}}}])
+    #only one answer for total book
+    for x in result:
+        return x
+
+
+#● The top 5 bestselling books
+#the bestsellingbooks check the stock
+@app.get("/bestsellingbooks")
+def best_book():
+    result = book_list.aggregate([{"$group":{"_id": "$title", "totalNumberOfBooks" : {"$sum": "$stock"}}}, {"$sort":{"$stock":-1}}])
+    counter = 0
+    answer = []
+    for x in result:
+        if counter == 5:
+            break
+        else:
+            answer.append(x)
+            counter += 1
+
+    return answer
+
+#● The top 5 authors with the most books in the store
+@app.get("/mostbook")
+def most_book():
+    result = book_list.aggregate([{"$group":{"_id": "$author", "totalNumberOfBooks" : {"$sum": 1}}}, {"$sort":{"totalNumberOfBooks":-1}}])
+    counter = 0
+    answer = []
+    for x in result:
+        if counter == 5:
+            break
+        else:
+            answer.append(x)
+            counter += 1
+
+    return answer
+    
 
 
 
