@@ -1,0 +1,29 @@
+    "title": "The Lord of the Rings",
+    "author": "J. R. R. Tolkien",
+    "description": "The Lord of the Rings is an epic high-fantasy novel by English author and scholar."
+    "price": 7.50,
+    "stock": 33
+
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "description": "A book about building better habits, and why that's important."
+    "price": 9.50,
+    "stock": 25
+
+    "title": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "description": "A man commits a crime he didn't realize the consequences for."
+    "price": 8.00,
+    "stock": 46
+
+    "title": "The Sea of Trolls",
+    "author": "Nancy Farmer",
+    "description": "Jack is kidnapped by berserkers from his Saxon village in the year A.D. 793, an occurrence forewarned by his mentor the Bard."
+    "price": 14.69,
+    "stock": 19
+
+    "title": "The Sea of Trolls",
+    "author": "Nancy Farmer",
+    "description": "Jack is kidnapped by berserkers from his Saxon village in the year A.D. 793, an occurrence forewarned by his mentor the Bard."
+    "price": 14.69,
+    "stock": 19
