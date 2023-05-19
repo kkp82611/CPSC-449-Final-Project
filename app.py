@@ -50,6 +50,26 @@ def get_book():
 
     return result_book
 
+
+# @app.get('/books')
+# def get_book_by_title(title: str):
+#     book = book_list.find_one({"title": title}, {"_id": 1})
+#     if book:
+#         return {"book_id": str(book["_id"])}
+#     else:
+#         return {"message": "Book not found"}
+
+@app.get('/books/{book_title}')
+def get_book_by_title(book_title: str):
+    book = book_list.find_one({"title": book_title}, {"_id": 1})
+    if book:
+        return {"book_id": str(book["_id"])}
+    else:
+        return {"error": "Book not found"}
+
+
+
+
 #● GET /books/{book_id}: Retrieves a specific book by ID
 @app.get('/books/{book_id}')
 def get_one_book(book_id: str):
