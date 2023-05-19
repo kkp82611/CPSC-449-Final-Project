@@ -65,6 +65,7 @@ def get_book_by_title(book_title: str):
 
 
 #● GET /books/{book_id}: Retrieves a specific book by ID
+# Example: http://127.0.0.1:8000/books?book_id={6467295b90b5ca6b91970c19}
 @app.get('/books/{book_id}')
 def get_one_book(book_id: str):
     mybook = book_list.find_one({"_id": ObjectId(book_id)},{"_id": 0})
