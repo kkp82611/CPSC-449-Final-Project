@@ -85,10 +85,10 @@ def delete_book(book_id: str):
 #● Search for books by author
 #● Search for books by price range
 @app.get("/search")
-def search_book(title: str = {"$exists":True}, author: str =  {"$exists":True}, min_price: float = 0, max_prie: float = 999999999):
+def search_book(title: str = {"$exists":True}, author: str =  {"$exists":True}, min_price: float = 0, max_price: float = 999999999):
     print(author)
 
-    result_book = book_list.find({"title": title, "author": author, "price":{"$gte":min_price,"$lt":max_prie}},{"_id": 0})
+    result_book = book_list.find({"title": title, "author": author, "price":{"$gte":min_price,"$lt":max_price}},{"_id": 0})
     cbook = []
     for x in result_book:
         cbook.append(x)
