@@ -2,11 +2,11 @@ import requests
 
 # Define the book details
 new_book = {
-    "title": "The Lord of the Rings",
-    "author": "J. R. R. Tolkien",
-    "description": "The Lord of the Rings is an epic high-fantasy novel by English author and scholar.",
-    "price": 7.50,
-    "stock": 33
+    "title": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "description": "A man commits a crime he didn't realize the consequences for.",
+    "price": 8.00,
+    "stock": 46
 }
 
 # Send the POST request to add the book
