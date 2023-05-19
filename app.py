@@ -60,9 +60,10 @@ def get_one_book(book_id: str):
 #● POST /books: Adds a new book to the store
 @app.post('/books')
 def add_book(add_book: Book):
-    book_list.insert_one(add_book.__dict__)
+    inserted_book = book_list.insert_one(add_book.__dict__)
+    new_book_id = str(inserted_book.inserted_id)
+    return {"book_id": new_book_id}
 
-    return "book added" 
      
 #● PUT /books/{book_id}: Updates an existing book by ID
 @app.put("/books/{book_id}")
